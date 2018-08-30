@@ -1,7 +1,6 @@
-package solutions.data_structures.array_left_rotation;
+package solutions.data_structures.tree_preorder_traversal;
 
-import java.util.*;
-import java.io.*;
+import java.util.Scanner;
 
 class Node {
 	Node left;
