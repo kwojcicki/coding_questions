@@ -3,7 +3,6 @@ package sorting;
 import java.util.Arrays;
 
 public class mergesort {
-
 	
 	public static void main(String[] args) {
 		int[] arr = new int[] { 5, -1, 10, 2};
@@ -26,7 +25,6 @@ public class mergesort {
 			merge(arr, low, high);
 		}
 	}
-	
 	
 	public static void merge(int[] arr, int low, int high) {
 		int[] temp = new int[arr.length];
