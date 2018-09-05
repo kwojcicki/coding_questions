@@ -1,6 +1,6 @@
-package misc;
+package geeksforgeeks;
 
-public class painetrs_partition_problem {
+public class painters_partition_problem {
 
 	public static void main(String[] args) {
 		System.out.println(solve(2, new int[] {10, 20, 30, 40}));
