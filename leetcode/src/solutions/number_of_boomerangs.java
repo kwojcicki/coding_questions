@@ -14,7 +14,6 @@ public class number_of_boomerangs {
         			continue;
         		}
         		
-        		
         		int xDiff = points[i][0] - points[j][0];
         		int yDiff = points[i][1] - points[j][1];
         		int diff = xDiff * xDiff + yDiff * yDiff;
