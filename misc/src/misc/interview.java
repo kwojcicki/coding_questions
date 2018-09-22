@@ -35,7 +35,7 @@ public class interview {
 			head = head.next;
 		}
 		
-		return newHead;
+		
 	}
 	
 	static class Node {
