@@ -25,14 +25,19 @@ public class interview {
 		n3.next = null;
 		
 		n1.optional = n3;
-		
+		System.out.println("before: ");
+		printList(n1);
 		Node newList = deepCopy(n1);
+		System.out.println("after: ");
 		printList(newList);
 		
 	}
 	
 	public static void printList(Node head) {
 		System.out.println("Node: " + head + " val: " + head.val + " next: " + head.next + " optional: " + head.optional);
+		if(head.next != null) {
+			printList(head.next);
+		}
 	}
 	
 	public static Node deepCopy(Node x) {
