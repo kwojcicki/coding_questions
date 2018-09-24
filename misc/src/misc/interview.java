@@ -31,6 +31,10 @@ public class interview {
 		
 	}
 	
+	public static void printList(Node head) {
+		System.out.println("Node: " + head + " val: " + head.val + " next: " + head.next + " optional: " + head.optional);
+	}
+	
 	public static Node deepCopy(Node x) {
 		
 		Node oldHead = x;
@@ -45,6 +49,7 @@ public class interview {
 			seen.put(x.next, newNode);
 			head.next = newNode;
 			head = head.next;
+			x = x.next;
 		}
 		
 		return newHead;
