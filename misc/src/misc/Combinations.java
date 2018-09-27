@@ -12,7 +12,6 @@ public class Combinations {
 		x.add(1);
 		x.add(2);
 		x.add(3);
-//		System.out.println(permutations(x, x.size() - 1));
 		List<List<Integer>> output = new ArrayList<List<Integer>>();
 		permute(x, output, 0);
 		System.out.println(output);
@@ -33,22 +32,4 @@ public class Combinations {
 			output.add(answer);
 		}
 	}
-
-	public static <T> List<List<T>> permutations(List<T> x, int size){
-		List<List<T>> lists = new ArrayList<List<T>>();
-		if(size == -1) {
-			lists.add(new ArrayList<T>());
-			return lists;
-		}
-
-		List<List<T>> otherLists = permutations(x, size - 1);
-		for(List<T> perm: otherLists) {
-			List<T> temp = new ArrayList<T>(perm);
-			temp.add(x.get(size));
-			lists.add(temp);
-		}
-
-		return lists;
-	}
-
 }
