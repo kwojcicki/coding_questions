@@ -57,6 +57,13 @@ public class interview {
 			x = x.next;
 		}
 		
+		while(oldHead.next != null) {
+			if(oldHead.optional != null) {
+				seen.get(oldHead).optional = seen.get(oldHead.optional);
+			}
+			oldHead = oldHead.next;
+		}
+		
 		return newHead;
 	}
 	
