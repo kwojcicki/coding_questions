@@ -32,4 +32,8 @@ public class Combinations {
 			output.add(answer);
 		}
 	}
+	
+	public static void nChooseK(List<Integer> arr, int k) {
+		
+	}
 }
