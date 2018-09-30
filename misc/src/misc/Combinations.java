@@ -15,6 +15,12 @@ public class Combinations {
 		List<List<Integer>> output = new ArrayList<List<Integer>>();
 		permute(x, output, 0);
 		System.out.println(output);
+		
+		if(output.size() != (3*2*1)) {
+			System.out.println("permute failed");
+		} else {
+			System.out.println("permute correct");
+		}
 	}
 
 	public static void permute(List<Integer> arr, List<List<Integer>> output, int k){
