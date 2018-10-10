@@ -47,27 +47,4 @@ public class misc {
 		
 	}
 	
-	public static int foo(int A[], int a, int B[], int b, double k) {
-		System.out.println(k);
-		if(k == 2) {
-			int[] tmp = new int[4];
-			tmp[0] = A[a];
-			tmp[1] = A[a + 1];
-			tmp[2] = B[b];
-			tmp[3] = B[b + 1];
-			Arrays.sort(tmp);
-			return tmp[1];
-		}
-		
-		int ma = A[a + (int)Math.floor(k/2)];
-		int mb = B[b + (int)Math.floor(k/2)];
-		System.out.println(ma + " " + mb);
-		if(ma < mb) {
-			System.out.println("Left");
-			return foo(A, a + (int)Math.floor(k/2), B, b, (int)Math.ceil(k/2));
-		} else {
-			System.out.println("Right");
-			return foo(A, a, B, b + (int)Math.floor(k/2), (int)Math.ceil(k/2));
-		}
-	}
 }
