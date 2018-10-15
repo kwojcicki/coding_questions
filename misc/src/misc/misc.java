@@ -8,10 +8,20 @@ public class misc {
 		int[] A = new int[] {1,2,3,10,11,12};
 		int[] B = new int[] {4,5,6,7,8,9};
 		
-		System.out.println(median(A, B));
+//		System.out.println(median(A, B));
+//		
+//		A = new int[] {1,2,3,4,5,6};
+//		B = new int[] {7,8,9,10,11,12};
+//		
+//		System.out.println(median(A, B));
+//		
+//		A = new int[] {1,2};
+//		B = new int[] {7,8};
+//		
+//		System.out.println(median(A, B));
 		
-		A = new int[] {1,2,3,4,5,6};
-		B = new int[] {7,8,9,10,11,12};
+		A = new int[] {1};
+		B = new int[] {7};
 		
 		System.out.println(median(A, B));
 	}
@@ -19,7 +29,7 @@ public class misc {
 	public static double median(int A[], int B[]) {
 		int i = 0;
 		int j = 0;
-		int w = 6;
+		int w = 1;
 		while(w > 2) {
 			int k = (int)Math.floor((double) (w - 1) / 2);
 			
@@ -40,7 +50,7 @@ public class misc {
 		tmp[1] = A[i + w - 1];
 		tmp[2] = B[j];
 		tmp[3] = B[j + w - 1];
-		System.out.println(":" + Arrays.toString(tmp));
+		System.out.println(":" + Arrays.toString(tmp) + " " + w);
 		Arrays.sort(tmp);
 		System.out.println(Arrays.toString(tmp));
 		return (double)(tmp[1] + tmp[2]) / 2;
