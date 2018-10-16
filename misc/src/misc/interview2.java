@@ -21,9 +21,7 @@ public class interview2 {
 			for(int j = 0; j < A[i].length; j++) {
 				System.out.println("starting");
 				max = Math.max(max, traverse(A, i, j, visited));
-				break;
 			}
-			break;
 		}
 		
 		System.out.println(max);
@@ -50,7 +48,7 @@ public class interview2 {
 			max = Math.max(max, traverse(A, i, j - 1, deepCopy(visited)));
 		}
 		
-		System.out.println(max);
+		//System.out.println(max);
 		return max + A[i][j];
 	}
 	
