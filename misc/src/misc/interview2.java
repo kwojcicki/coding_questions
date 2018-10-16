@@ -35,20 +35,14 @@ public class interview2 {
 		int max = 0;
 		visited[i][j] = true;
 		
-		if(possible(A, i + 1, j, visited)) {
-			max = Math.max(max, traverse(A, i + 1, j, deepCopy(visited)));
-		}
-		if(possible(A, i - 1, j, visited)) {
-			max = Math.max(max, traverse(A, i - 1, j, deepCopy(visited)));
-		}
-		if(possible(A, i, j + 1, visited)) {
-			max = Math.max(max, traverse(A, i, j + 1, deepCopy(visited)));
-		}
-		if(possible(A, i, j - 1, visited)) {
-			max = Math.max(max, traverse(A, i, j - 1, deepCopy(visited)));
+		int[][] directions = new int[][] {new int[] {1, 0}, new int[] {0, 1}, new int[] {-1, 0}, new int[] {0, -1}};
+		
+		for(int[] direction: directions) {
+			if(possible(A, i + direction[0], j + direction[1], visited)) {
+				max = Math.max(max, traverse(A, i + direction[0], j + direction[1], deepCopy(visited)));
+			}
 		}
 		
-		//System.out.println(max);
 		return max + A[i][j];
 	}
 	
