@@ -13,9 +13,27 @@ public class interview2 {
 		};
 		
 		
-		
 		int max = 0;
 		boolean[][] visited = new boolean[A.length][A[0].length];
+		
+		for(int i = 0; i < A.length; i++) {
+			for(int j = 0; j < A[i].length; j++) {
+				System.out.println("starting");
+				max = Math.max(max, traverse(A, i, j, visited));
+			}
+		}
+		
+		System.out.println(max);
+		
+		
+		A = new int[][] {
+			new int[] {1, 2, 3, 4},
+			new int[] {1, 2, -10, 4},
+		};
+		
+		
+		max = 0;
+		visited = new boolean[A.length][A[0].length];
 		
 		for(int i = 0; i < A.length; i++) {
 			for(int j = 0; j < A[i].length; j++) {
