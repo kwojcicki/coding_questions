@@ -1,7 +1,5 @@
 package top_interview_easy.dp;
 
-import java.util.Arrays;
-
 public class max_subarray {
 	
     public int maxSubArray(int[] nums) {
