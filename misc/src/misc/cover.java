@@ -1,10 +1,11 @@
 package misc;
 
 import java.io.IOException;
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.Stream;
 
 public class cover {
@@ -46,10 +47,12 @@ public class cover {
 		ArrayList<ArrayList<ArrayList<Integer>>> all = new ArrayList<ArrayList<ArrayList<Integer>>>();
 		ArrayList<ArrayList<Integer>> curr = new ArrayList<ArrayList<Integer>>();
 		int index = 0;
-		int[] input = new int[] {-7215, 1663, -5179, 1091, -542, 7868, -5687, -1048, 7838, 4346, -2944, 3959};
+		int[] input = new int[] {-7215, 1663, -5179, 1091, -542, 7868, -5687, 
+				-1048, 7838, 4346, -2944, 3959, -2780, 1099, -9402, -7238, -8548, -2917, -3821, 295, 2713};
 		recurse(all, curr, index, input);
 
 		int maxScore = 0;
+		ArrayList<Integer> maxScores = new ArrayList<Integer>();
 		for(ArrayList<ArrayList<Integer>> a: all) {
 
 			ArrayList<Integer> scores = new ArrayList<Integer>();
@@ -65,8 +68,11 @@ public class cover {
 				}
 			}
 
-			maxScore = Math.max(maxScore, score);
-			System.out.println(a + " score: " + score);
+			if(score > maxScore) {
+				maxScore = Math.max(maxScore, score);
+				maxScores = scores;
+			}
+			//System.out.println(a + " score: " + score);
 		}
 
 		System.out.println("max score: " + maxScore);
@@ -87,6 +93,7 @@ public class cover {
 			e.printStackTrace();
 		}
 
+		Collections.reverse(numbers);
 		ArrayList<Long> scores = new ArrayList<Long>();
 
 		Long c = 0L;
@@ -98,6 +105,7 @@ public class cover {
 			}
 		}
 		
+		scores.add(c);
 		long score = 0;
 
 		for(int i = 0; i < scores.size(); i++) {
@@ -109,6 +117,8 @@ public class cover {
 		
 		System.out.println(score);
 
+		System.out.println(Arrays.stream(input).mapToLong(i -> i).sum());
+		System.out.println(maxScores);
 		System.out.println(scores);
 		//System.out.println(numbers);
 		System.out.println(numbers.size());
