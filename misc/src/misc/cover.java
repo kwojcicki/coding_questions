@@ -75,6 +75,15 @@ public class cover {
 		System.out.println(score);
 		return score;
 	}
+	
+	public static Integer calculateHeuristic2(int[] input, boolean positive) {
+		ArrayList<Integer> scores = new ArrayList<Integer>();
+		int score = 0;
+
+		System.out.println("heuristic2 scores: " + scores);
+		System.out.println(score);
+		return score;
+	}
 
 	public static void main(String[] args) {
 
@@ -93,7 +102,7 @@ public class cover {
 			}
 			recurse(all, curr, index, input);
 
-			int maxScore = 0;
+			int maxScore = Integer.MIN_VALUE;
 			ArrayList<Integer> maxScores = new ArrayList<Integer>();
 			ArrayList<ArrayList<Integer>> maxOrder = new ArrayList<>();
 			for(ArrayList<ArrayList<Integer>> a: all) {
@@ -125,6 +134,7 @@ public class cover {
 			System.out.println("overall sum: " + Arrays.stream(input).sum());
 
 			Long calculateScore = calculateHeuristic(input, Arrays.stream(input).sum() > 0);
+			calculateScore = Math.max(calculateScore, calculateHeuristic2(input, Arrays.stream(input).sum() > 0));
 			
 			for(int i = 0; i < input.length / 2; i++)
 			{
@@ -135,6 +145,7 @@ public class cover {
 
 			System.out.println("input reversed: " + Arrays.toString(input));
 			calculateScore = Math.max(calculateScore, calculateHeuristic(input, Arrays.stream(input).sum() > 0));
+			calculateScore = Math.max(calculateScore, calculateHeuristic2(input, Arrays.stream(input).sum() > 0));
 			if(calculateScore != maxScore && Arrays.stream(input).sum() > 0) {
 				System.out.println(calculateScore);
 				break;
