@@ -23,7 +23,7 @@ public class all_elements_in_two_binary_search_trees {
 				root2 = root2.left;
 			}
 			
-			if(s2.isEmpty() || (!s1.isEmpty() && s1.peek().val > s2.peek().val)) {
+			if(s2.isEmpty() || (!s1.isEmpty() && s1.peek().val < s2.peek().val)) {
 				root1 = s1.pop();
 				ret.add(root1.val);
 				root1 = root1.right;
