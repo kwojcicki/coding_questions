@@ -19,7 +19,7 @@ public class sum_of_root_to_leaf_binary_numbers {
 //
 	
     public int sumRootToLeaf(TreeNode root) {
-    	return sumToRootLeaf(root.left, root.val) + sumToRootLeaf(root.right, root.val);
+    	return sumToRootLeaf(root, 0);
     }
     
     public int sumToRootLeaf(TreeNode root, int curr) {
@@ -28,7 +28,7 @@ public class sum_of_root_to_leaf_binary_numbers {
     	}
     	
     	if(root.left == null && root.right == null) {
-    		return curr;
+    		return curr * 2 + root.val;
     	}
     	
     	return sumToRootLeaf(root.left, curr * 2 + root.val) + sumToRootLeaf(root.right, curr * 2 + root.val); 
