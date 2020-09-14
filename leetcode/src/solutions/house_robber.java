@@ -13,4 +13,19 @@ public class house_robber {
     	
     	return Math.max(oneStep, twoStep);
     }
+	
+    public int rob1(int[] nums) {
+        int one = 0;
+        int two = 0;
+        
+        for(int i: nums){
+            int temp = Math.max(one, two + i);
+            
+            two = one;
+            one = temp;
+        }
+        
+        
+        return Math.max(one, two);
+    }
 }
