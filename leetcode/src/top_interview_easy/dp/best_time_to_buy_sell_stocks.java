@@ -4,7 +4,19 @@ import java.util.Arrays;
 
 public class best_time_to_buy_sell_stocks {
 	
-    public int maxProfit(int[] prices) {
+	public int maxProfit(int[] prices) {
+		int max = 0;
+		int maxElement = 0;
+		
+		for(int i = prices.length - 1; i >= 0; i--) {
+			max = Math.max(maxElement - prices[i], max);
+			maxElement = Math.max(maxElement, prices[i]);
+		}
+		
+		return max;
+	}
+	
+    public int maxProfit1(int[] prices) {
         int maxCur = 0;
         int maxSoFar = 0;
         for(int i = 1; i < prices.length; i++) {
