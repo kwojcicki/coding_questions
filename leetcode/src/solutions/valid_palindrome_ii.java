@@ -45,8 +45,6 @@ public class valid_palindrome_ii {
 			}
 		}
 
-
-
 		return true;
 	}
 }
