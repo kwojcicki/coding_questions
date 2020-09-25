@@ -10,6 +10,7 @@ public class find_the_difference {
 			79, 83, 89, 97, 101	
 	};
 
+	// alternative: xor/addition
 	public char findTheDifference(String s, String t) {
 		double sum = 1;
 
