@@ -6,26 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class largest_time_for_given_digits {
-//    public static String largestTimeFromDigits(int[] A) {
-//    	String time = "";
-//    	
-//    	Arrays.sort(A);
-//    	int temp = A[0];
-//    	A[0] = A[1];
-//    	A[1] = temp;
-//    	
-//    	if( A[0] > 3 ||
-//    		(A[0] == 2 && A[1] > 4) ||
-//    		A[2] > 5) {
-//    		return "";
-//    	}
-//    	
-//    	for(int a: A) time += a;
-//    	
-//        return time;
-//    }
-//   
-	
+
 	static int maxTime = -1; 
 	
 	public static String largestTimeFromDigits(int[] A) {
