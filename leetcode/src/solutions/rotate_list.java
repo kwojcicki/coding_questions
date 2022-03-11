@@ -2,7 +2,46 @@ package solutions;
 
 public class rotate_list {
 
-	public ListNode rotateRight(ListNode head, int k) {
+	public int helper(ListNode head) {
+		if(head == null) {
+			return 0;
+		}
+		
+		return 1 + helper(head.next);
+	}
+	
+    public ListNode rotateRight(ListNode head, int k) {
+        if(head == null || k == 0 || head.next == null){
+            return head;
+        }
+        
+        int length = helper(head);
+        int size = length - k % length;
+        
+        if(size == length){
+            return head;
+        }
+        
+        ListNode tmpHead = head;
+        ListNode end = head;
+        
+        while(end.next != null) {
+        	end = end.next;
+        }
+        
+        for(int i = 0; i < size - 1; i++) {
+        	head = head.next;
+        }
+        
+        ListNode tmp = head.next;
+        head.next = null;
+        head = tmp;
+        end.next = tmpHead;
+        
+        return head;
+    }
+	
+	public ListNode rotateRight1(ListNode head, int k) {
 		if(head == null) return null;
 
 		int listSize = size(head);
