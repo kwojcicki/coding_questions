@@ -5,7 +5,42 @@ import java.util.Map;
 
 public class copy_list_with_random_pointer {
     public Node copyRandomList(Node head) {
-     
+    	Node newHead = new Node(0);
+    	Node tmpNew = newHead;
+    	
+    	Node oldHead = head;
+    	
+    	while(head != null) {
+    		Node n = new Node(head.val);
+    		n.next = head.next;
+    		head.next = n;
+    		
+    		head = head.next.next;
+    	}
+        
+    	head = oldHead;
+    	
+    	while(head != null && head.next != null) {
+    		head.next.random = head.random == null ? null : head.random.next;
+    		
+    		head = head.next.next;
+    	}
+    	
+    	head = oldHead;
+    	
+    	while(head != null) {
+    		tmpNew.next = head.next;
+    		head.next = head.next.next;
+    		
+    		head = head.next;
+    		tmpNew = tmpNew.next;
+    	}
+    	
+    	return newHead.next;
+    }
+	
+	
+    public Node copyRandomList1(Node head) {
     	if(head == null) {
     		return null;
     	}
