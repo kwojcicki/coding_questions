@@ -3,10 +3,46 @@ package solutions;
 import java.util.Stack;
 
 public class minimum_remove_to_make_valid_parentheses {
+
 	public String minRemoveToMakeValid(String s) {
+		StringBuilder ret = new StringBuilder();
+
+		int count = 0;
+		int open = 0;
+		for(char c: s.toCharArray()) {
+			if(c == '(') {
+				open++;
+			} else if(c == ')' && open > 0) {
+				open--; 
+				count++;
+			}
+		}
+
+		open = 0;
+		for(char c: s.toCharArray()) {
+			if(c == ')' && open == 0 ) {
+				continue;
+			} else if(c == ')') {
+				open--;
+				count--;
+			}
+
+			if(c == '(' && count > open) {
+				open++;
+			} else if(c == '(' && count == open) {
+				continue;
+			}
+
+			ret.append(c);
+		}
+
+		return ret.toString();
+	}
+
+	public String minRemoveToMakeValid1(String s) {
 		Stack<Integer> st = new Stack<>();
 		String[] a = s.split("");
-		
+
 		for(int i = 0; i < a.length; i++) {
 			if(a[i].equals("(")) {
 				st.add(i);
@@ -18,13 +54,13 @@ public class minimum_remove_to_make_valid_parentheses {
 				}
 			}
 		}
-		
+
 		while(!st.isEmpty()) a[st.pop()] = "";
-		
+
 		return String.join("", a);
 	}
-	
-	public String minRemoveToMakeValid1(String s) {
+
+	public String minRemoveToMakeValid2(String s) {
 		StringBuilder ret = new StringBuilder();
 
 		int open = 0, closed = 0;
