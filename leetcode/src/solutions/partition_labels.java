@@ -6,7 +6,34 @@ import java.util.List;
 import java.util.Map;
 
 public class partition_labels {
-    public static List<Integer> partitionLabels(String S) {
+	
+
+    public static List<Integer> partitionLabels(String s) {
+        int[] last = new int[26];
+    	List<Integer> ret = new ArrayList<>();
+    	
+    	for(int i = 0; i < s.length(); i++) {
+    		last[s.charAt(i) - 'a'] = i;
+    	}
+    	
+    	int i = 0;
+		int l = -1;
+    	while(i < s.length()) {
+    		int max = last[s.charAt(i) - 'a'];
+    		while(i != max) {
+    			max = Math.max(last[s.charAt(i) - 'a'], max);
+    			i++;
+    		}
+    		
+    		ret.add(i - l);
+    		l = i;
+            i++;
+    	}
+    	
+    	return ret;
+    }
+	
+    public static List<Integer> partitionLabels1(String S) {
         Map<Character, Integer[]> map = new HashMap<>();
         List<Integer> ret = new ArrayList<>();
         
