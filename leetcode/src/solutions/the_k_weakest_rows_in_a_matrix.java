@@ -28,13 +28,8 @@ public class the_k_weakest_rows_in_a_matrix {
 	}
 
 	public int bs(int[] m) {
-
-		if(m[m.length - 1] == 1){
-			return m.length;
-		}
-
 		int start = 0;
-		int end = m.length - 1;
+		int end = m.length;
 		int mid;
 		while(start < end) {
 			mid = (end - start) / 2 + start;
