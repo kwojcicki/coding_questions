@@ -52,7 +52,7 @@ public class search_a_2d_matrix {
 			if(matrix[mid / matrix[0].length][mid % matrix[0].length] == target) {
 				return true;
 			} else if(matrix[mid / matrix[0].length][mid % matrix[0].length] > target) {
-				end = mid;
+				end = mid - 1;
 			} else {
 				start = mid + 1;
 			}
