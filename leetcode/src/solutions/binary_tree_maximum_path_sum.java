@@ -2,9 +2,25 @@ package solutions;
 
 public class binary_tree_maximum_path_sum {
 	
+	
+	int max = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root) {
+    	if(root == null) return 0;
+    	recurse(root);
+    	return max;
+    }
+	
+    public int recurse(TreeNode root) {
+    	if(root == null) return 0;
+    	int left = Math.max(0, recurse(root.left));
+    	int right = Math.max(0, recurse(root.right));
+    	max = Math.max(max, left + right + root.val);
+    	return Math.max(left + root.val, right + root.val);
+    }
+    
 	int maxValue = Integer.MIN_VALUE;
 	
-	public int maxPathSum(TreeNode root) {
+	public int maxPathSum1(TreeNode root) {
 		maxPathSumHelper(root);
 		return maxValue;
 	}
