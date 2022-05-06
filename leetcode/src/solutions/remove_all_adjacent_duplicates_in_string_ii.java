@@ -1,6 +1,7 @@
 package solutions;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class remove_all_adjacent_duplicates_in_string_ii {
 	
@@ -14,26 +15,26 @@ public class remove_all_adjacent_duplicates_in_string_ii {
 	}
 	
     public String removeDuplicates(String s, int k) {
-        Stack<Pair> st = new Stack<>();
+    	Deque<Pair> st = new ArrayDeque<>();
         
         for(int i = 0; i < s.length(); i++) {
-        	if(!st.isEmpty() && st.peek().c == s.charAt(i) && st.peek().count + 1 == k) {
-        		for(int j = 0;j < k - 1; j++) st.pop();
+        	if(!st.isEmpty() && st.peekLast().c == s.charAt(i) && st.peekLast().count + 1 == k) {
+        		st.removeLast();
         	} else {
-        		if(!st.isEmpty() && st.peek().c == s.charAt(i)) {
-        			st.push(new Pair(s.charAt(i), st.peek().count + 1));
+        		if(!st.isEmpty() && st.peekLast().c == s.charAt(i)) {
+        			st.peekLast().count += 1;
         		} else {
-        			st.push(new Pair(s.charAt(i), 1));
+        			st.addLast(new Pair(s.charAt(i), 1));
         		}
         	}
         }
         
         StringBuilder ret = new StringBuilder(st.size());
         
-        while(!st.isEmpty()) {
-        	ret.append(st.pop().c);
+        for(Pair c : st) {
+        	ret.append(String.valueOf(c.c).repeat(c.count));
         }
         
-        return ret.reverse().toString();
+        return ret.toString();
     }
 }
