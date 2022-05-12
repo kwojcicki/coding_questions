@@ -45,7 +45,6 @@ public class permutations_ii {
 
 	public static void recurse(int[] nums, int index, Set<List<Integer>> ret) {
 		if(index == nums.length) {
-
 			List<Integer> r = new ArrayList<Integer>();
 			for(int a: nums) r.add(a);
 			ret.add(r);
@@ -61,6 +60,5 @@ public class permutations_ii {
 			nums[i] = nums[index];
 			nums[index] = temp;
 		}
-
 	}
 }
