@@ -23,12 +23,16 @@ class Node {
 	public List<Node> children;
 	Node next;
 	Node random;
+    public Node left;
+    public Node right;
 	public Node parent;
 
 	public Node(int val) {
 		this.val = val;
 		this.next = null;
 		this.random = null;
+		this.left = null;
+		this.right = null;
 	}
 
 	public Node() {}
