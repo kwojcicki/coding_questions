@@ -7,8 +7,6 @@ public class find_a_corresponding_node_of_a_binary_tree_in_a_clone_of_that_tree 
         if(original == null) return null;
         
         TreeNode left = getTargetCopy(original.left, cloned.left, target);
-        TreeNode right = getTargetCopy(original.right, cloned.right, target);
-        
-        return left == null ? right : left;
+        return left != null ? left : getTargetCopy(original.right, cloned.right, target);
     }
 }
