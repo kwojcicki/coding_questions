@@ -1,7 +1,5 @@
 package solutions;
 
-import java.util.stream.IntStream;
-
 public class running_sum_of_1d_array {
     public int[] runningSum(int[] nums) {
         int[] ret = new int[nums.length];
