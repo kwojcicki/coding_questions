@@ -70,4 +70,10 @@ public class n_queens {
     	
     	return ret;
     }
+    
+    public static void main(String[] args) {
+    	for(int i = 1; i <= 9; i++) {
+    		System.out.println(i + " : " + new n_queens().solveNQueens(i).size());
+    	}
+    }
 }
