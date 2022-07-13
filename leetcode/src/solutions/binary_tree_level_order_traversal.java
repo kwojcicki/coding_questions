@@ -6,7 +6,24 @@ import java.util.List;
 import java.util.Queue;
 
 public class binary_tree_level_order_traversal {
-	public List<List<Integer>> levelOrder(TreeNode root) {
+	
+    public List<List<Integer>> levelOrder(TreeNode root) {
+		List<List<Integer>> ret = new ArrayList<List<Integer>>();
+		helper(root, 0, ret);
+		return ret;
+    }
+    
+    public void helper(TreeNode root, int lvl, List<List<Integer>> ret) {
+    	if(root == null) return;
+    	
+    	if(ret.size() <= lvl) ret.add(new ArrayList<>());
+    	
+    	ret.get(lvl).add(root.val);
+    	helper(root.left, lvl + 1, ret);
+    	helper(root.right, lvl + 1, ret);
+    }
+    
+	public List<List<Integer>> levelOrder1(TreeNode root) {
 		List<List<Integer>> toReturn = new ArrayList<List<Integer>>();
 		
 		if(root == null) {
