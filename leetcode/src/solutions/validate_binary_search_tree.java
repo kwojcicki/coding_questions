@@ -11,4 +11,17 @@ public class validate_binary_search_tree {
     	return valid(root.left, min, ((long)root.val) - 1) && 
     			valid(root.right, ((long)root.val) + 1, max);
     }
+    
+    Integer prev = null;
+    public boolean isValidBST1(TreeNode root) {
+        return valid(root);
+    }
+    
+    public boolean valid(TreeNode root) {
+    	if(root == null) return true;
+        if(!valid(root.right)) return false;
+    	if(prev != null && prev <= root.val) return false;
+        prev = root.val;
+        return valid(root.left);
+    }
 }
