@@ -3,7 +3,21 @@ package solutions;
 import java.util.Arrays;
 
 public class rotate_image {
-    public static void rotate(int[][] matrix) {
+	
+	public void rotate(int[][] matrix) {
+        for(int i = 0; i < matrix.length / 2; i++){
+            for(int j = i; j < matrix.length - 1 - i; j++){
+                int tmp = matrix[i][j];
+                int len = matrix.length - 1;
+                matrix[i][j] = matrix[len - j][i];
+                matrix[len - j][i] = matrix[len - i][len - j];
+                matrix[len - i][len - j] = matrix[j][len - i];
+                matrix[j][len  - i] = tmp;
+            }
+        }
+    }
+	
+    public static void rotate1(int[][] matrix) {
 
     	for(int r = 0; r < matrix.length / 2 ; r++) {
     		int first = r;
@@ -39,7 +53,7 @@ public class rotate_image {
     	}
     	
     	System.out.println();
-    	rotate(A);
+    	rotate1(A);
     	
     	for(int[] a: A) {
     		System.out.println(Arrays.toString(a));
