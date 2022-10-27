@@ -4,8 +4,8 @@ public class image_overlap {
     public int largestOverlap(int[][] A, int[][] B) {
     	int max = 0;
     	
-    	for(int r = -A.length + 1; r < A.length - 1; r++) {
-    		for(int c = -A[0].length + 1; c < A[0].length - 1; c++) {
+    	for(int r = -A.length + 1; r < A.length; r++) {
+    		for(int c = -A[0].length + 1; c < A[0].length; c++) {
     			max = Math.max(max, shift(A, B, r, c));
     		}
     	}
