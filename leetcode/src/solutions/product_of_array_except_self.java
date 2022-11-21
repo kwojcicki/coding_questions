@@ -4,6 +4,25 @@ import java.util.Arrays;
 
 public class product_of_array_except_self {
 
+	public int[] productExceptSelf_fun(int[] nums) {
+		int[] ret = new int[nums.length];
+		int sum = Arrays.stream(nums).filter(x -> x != 0)
+				.reduce((a,b) -> a * b).orElse(0);
+		int zeroes = 0;
+		for(int i: nums) {
+			if(i == 0 && ++zeroes == 2) {
+				Arrays.fill(ret, 0);
+				return ret;
+			}
+		}
+
+		for(int i = 0; i < ret.length; i++) {
+			ret[i] = zeroes > 0 ? (nums[i] != 0 ? 0 : sum) : sum / nums[i];
+		}
+
+		return ret;
+	}
+
 
 	public int[] productExceptSelf(int[] nums) {
 		int[] ret = new int[nums.length];
