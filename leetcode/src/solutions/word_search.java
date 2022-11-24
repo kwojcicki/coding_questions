@@ -10,8 +10,7 @@ public class word_search {
 			for(int c = 0; c < board[r].length; c++) {
 				if(board[r][c] == word.charAt(0)) {
                     //System.out.println(r + " " + c);
-					boolean[][] seen = new boolean[board.length][board[r].length];
-					found = found || dfs(board, r, c, seen, word, 0);
+					found = found || dfs(board, r, c, word, 0);
                     if(found) return found;
 				}
 			}
@@ -20,24 +19,24 @@ public class word_search {
 		return false;
 	}
 
-	public boolean dfs(char[][] board, int r, int c, boolean[][] seen, String word, int index) {
+	public boolean dfs(char[][] board, int r, int c, String word, int index) {
         
         if(index == word.length()) return true;
 
-		if(r < 0 || c < 0 || r >= seen.length || c >= seen[r].length || seen[r][c]) return false;
+		if(r < 0 || c < 0 || r >= board.length || c >= board[r].length || board[r][c] == '.') return false;
         
         
 		if(board[r][c] != word.charAt(index)) return false;
 
-		seen[r][c] = true;
+		char t = board[r][c];
+		board[r][c] = '.';
 
-		boolean result =  dfs(board, r + 1, c, seen, word, index + 1) ||
-				dfs(board, r - 1, c, seen, word, index + 1) ||
-				dfs(board, r, c + 1, seen, word, index + 1) ||
-				dfs(board, r, c - 1, seen, word, index + 1);
+		boolean result =  dfs(board, r + 1, c, word, index + 1) ||
+				dfs(board, r - 1, c, word, index + 1) ||
+				dfs(board, r, c + 1, word, index + 1) ||
+				dfs(board, r, c - 1, word, index + 1);
 		
-		seen[r][c] = false;
-		
+		board[r][c] = t;
 		return result;
 	}
 }
