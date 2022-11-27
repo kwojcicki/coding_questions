@@ -1,3 +1,4 @@
+package solutions;
 
 public class arithmetic_slices {
 	public int numberOfArithmeticSlices(int[] nums) {
