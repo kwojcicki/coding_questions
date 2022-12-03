@@ -5,21 +5,21 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class sort_characters_by_frequency {
     public String frequencySort(String s) {
-    	Map<Character, Integer> co = new HashMap<Character, Integer>();
-    	for(char c: s.toCharArray()) {
-    		co.compute(c, (k,v) -> v == null ? 1 : v + 1);
-    	}
-    	
-    	return co.
+    	return s.
+    		chars().
+    		boxed().
+    		collect(Collectors.groupingBy(Function.identity(), Collectors.counting())).
     		entrySet().
     		stream().
     		sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).
     		reduce("", 
     				(a,b) -> a + String.join("", 
-    						Collections.nCopies(b.getValue(), b.getKey() + "")),
+    						((char)(b.getKey() + 0) + "").repeat(b.getValue().intValue())),
     				(a,b) -> a + b);
     }
     
