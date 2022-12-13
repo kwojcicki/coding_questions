@@ -4,6 +4,23 @@ import java.util.Arrays;
 
 public class minimum_falling_path_sum {
     public int minFallingPathSum(int[][] A) {
+    	int[] dp = new int[A[0].length + 2];
+    	
+    	dp[0] = 100_000;
+    	dp[A[0].length - 1] = 100_00;
+    	
+    	for(int i = A.length - 1; i >= 0; i--) {
+    		for(int j = 1; j < dp.length - 2; j++) {
+    			dp[j] = A[i][j] + Math.min(dp[j - 1], 
+    					Math.min(dp[j], dp[j + 1]));
+    		}
+    	}
+    	
+    	
+    	return Arrays.stream(dp).min().getAsInt();
+    }
+    
+    public int minFallingPathSum1(int[][] A) {
         
     	int[][] dp = new int[A.length][A[0].length];
     	
