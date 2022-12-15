@@ -30,6 +30,8 @@ public class largest_number {
 				for(int i = length; i < as.length; i++) {
 					if(as[i] < min) {
 						return 1;
+					} else if(as[i] > min) {
+						return -1; 
 					}
 				}
 				
@@ -43,6 +45,8 @@ public class largest_number {
 				for(int i = length; i < bs.length; i++) {
 					if(bs[i] < min) {
 						return -1;
+					} else if(bs[i] > min) {
+						return 1;
 					}
 				}
 				
@@ -57,6 +61,10 @@ public class largest_number {
 		StringBuilder r = new StringBuilder();
 		for(int i = 0; i < ret.size();i++) {
 			r.append(Integer.toString(ret.get(i)));
+		}
+		
+		while(r.charAt(0) == '0' && r.length() > 1) {
+			r = r.deleteCharAt(0);
 		}
 		
 		return r.toString();

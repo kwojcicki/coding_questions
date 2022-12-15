@@ -21,24 +21,23 @@ public class n_ary_tree_preorder_traversal {
 class Node {
 	public int val;
 	public List<Node> children;
-	Node next;
-	Node random;
+	public Node next;
+    public Node random;
+    public Node parent;
     public Node left;
     public Node right;
-	public Node parent;
-
-	public Node(int val) {
-		this.val = val;
-		this.next = null;
-		this.random = null;
-		this.left = null;
-		this.right = null;
-	}
+    public List<Node> neighbors;
 
 	public Node() {}
 
 	public Node(int _val,List<Node> _children) {
 		val = _val;
 		children = _children;
+	}
+
+	public Node(int val2) {
+		this.val = val2;
+		next = null;
+		random = null;
 	}
 }

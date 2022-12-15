@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class maximum_width_of_binary_tree {
+	
 	public int widthOfBinaryTree(TreeNode root) {
 		int ret = 0;
 

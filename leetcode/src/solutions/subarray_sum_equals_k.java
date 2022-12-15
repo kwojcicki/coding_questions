@@ -5,6 +5,38 @@ import java.util.Map;
 
 public class subarray_sum_equals_k {
 	
+	
+	
+    public int subarraySum3(int[] nums, int k) {
+        int left = 0, right = 0, curr = 0, ret = 0;
+        
+        while(right < nums.length - 1 && left < nums.length - 1) {
+        	if(curr == k) {
+        		ret++;
+        	}
+        	
+        	if(curr < k) {
+        		right++;
+        		curr += nums[right];
+        	} else {
+        		curr -= nums[left];
+        		left++;
+        	}
+        }
+        
+        return ret;
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public int subarraySum2(int[] nums, int k) {
 		int count = 0;
 		int sum = 0;

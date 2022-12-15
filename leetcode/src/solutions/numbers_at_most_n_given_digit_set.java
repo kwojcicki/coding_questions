@@ -15,7 +15,7 @@ public class numbers_at_most_n_given_digit_set {
         	ret += helper(dgs, n, i);
         }
         
-        return ret;
+        // return ret; doesnt work;
     }
     
     public int helper(int[] digits, int n, int curr) {
