@@ -3,8 +3,19 @@ package solutions;
 import java.util.regex.Pattern;
 
 public class detect_capital {
-	
+
     public boolean detectCapitalUse(String word) {
+    	if(word.length() == 1) return true;
+    	char[] c = word.toCharArray();
+    	boolean f = c[0] < 'a';
+    	int count = 0;
+    	
+    	for(char c1: c) if(c1 < 'a') count++;
+    	
+    	return (f && count == 1) || (!f && count == 0) || (word.length() == count);
+    }
+    
+    public boolean detectCapitalUse1(String word) {
 
     	boolean allCaps = word.charAt(0) < 'a';
     	
@@ -24,7 +35,7 @@ public class detect_capital {
     	return true;
     }
     
-    public boolean detectCapitalUse1(String word) {
+    public boolean detectCapitalUse2(String word) {
         return Pattern.matches("[A-Z]+|[a-z]+|[A-Z][a-z]+", word);
     }
 }
