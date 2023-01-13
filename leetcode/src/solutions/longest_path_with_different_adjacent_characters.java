@@ -1,7 +1,6 @@
 package solutions;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +19,6 @@ public class longest_path_with_different_adjacent_characters {
 	}
 
 	public int helper(int i, Map<Integer, List<Integer>> m, char[] l) {
-		int ret = 0;
-
 		List<Integer> n = m.getOrDefault(i, List.of());
         int big1 = 0;
         int big2 = 0;
