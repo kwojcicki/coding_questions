@@ -1,5 +1,9 @@
 package solutions;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class add_to_array_form_of_integer {
 	public List<Integer> addToArrayForm(int[] num, int k) {
         List<Integer> ret =  new ArrayList<>();
