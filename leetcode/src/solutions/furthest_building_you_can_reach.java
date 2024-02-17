@@ -7,57 +7,26 @@ import java.util.Queue;
 public class furthest_building_you_can_reach {
 
 	public int furthestBuilding(int[] heights, int bricks, int ladders) {
-		int ret = -1;
-
+		int ret = 0;
 		Queue<Integer> q = new PriorityQueue<>(Comparator.reverseOrder());
-
-		for(int i = 0; i < heights.length; i++){
-			int height = heights[i];
-			int prev = i == 0 ? heights[0] : heights[i - 1];
-
-			// System.out.println(bricks + " " + ladders);
-
-			if(height <= prev) {
-				ret++;
+		for(; ret < heights.length - 1; ret++) {
+			int diff = heights[ret + 1] - heights[ret];
+			// System.out.println(ret + " " + heights[ret] + " " + bricks + " " + ladders + " " + diff);
+			if(heights[ret] >= heights[ret + 1]) continue;
+			if(diff <= bricks) {
+				q.add(diff);
+				bricks -= diff;
 				continue;
 			}
-
-			if(ladders == 0 && (height - prev) > bricks) {
-				// System.out.println("break1");
-				break;
-			}
-
-			if(height - prev <= bricks) {
-				bricks -= (height - prev);
-				q.add(height - prev);
-				ret++;
-				continue;
-			}
-
-			if(!q.isEmpty() && height - prev > q.peek() && ladders > 0) {
+			if(ladders == 0) break;
+			if(q.isEmpty() || q.peek() < diff){
 				ladders--;
-				ret++;
-				continue;
-			}
-
-			if(!q.isEmpty()){
+			} else if(!q.isEmpty()){
+				ladders--;
 				bricks += q.poll();
-				ladders--;
-				bricks -= (height - prev);
-				q.add(height - prev);
-				ret++;
-				continue;
-			} else if(ladders > 0){
-				ret++;
-				ladders--;
-				continue;
+				ret--;
 			}
-
-			// System.out.println("break2: " + (height - prev));
-			break;
 		}
-
-		// System.out.println(bricks + "--" + ladders);
-		return ret; 
+		return ret;
 	}
 }
