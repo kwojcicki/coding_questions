@@ -1,5 +1,8 @@
 package solutions;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class check_if_n_and_its_double_exist {
     public boolean checkIfExist(int[] arr) {
         Set<Integer> s = new HashSet<>();
